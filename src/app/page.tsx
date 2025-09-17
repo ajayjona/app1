@@ -1,82 +1,46 @@
-"use client";
-interface Todo {
-  id: number;
-  title: string;
-  completed: boolean;
-}
+import Link from "next/link";
+import { FC } from "react";
 
-import { useEffect, useState } from "react";
-import AddButton from "@/components/AddButton";
-import TopBar from "@/components/TopBar";
-
-export default function Home() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [input, setinput] = useState<string>("");
-  const addTodo = () => {
-    if (input.trim() === "") return;
-    const newTodo: Todo = {
-      id: Date.now(),
-      title: input,
-      completed: false,
-    };
-    setTodos([...todos, newTodo]);
-    setinput("");
-  };
-
-  const deleteTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
-  const toggleComplete = (id: number) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
-
+const Home: FC = () => {
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 bg-white shadow-md rounded-lg">
-<TopBar/>
-      
-      <div className="flex mb-4 gap-2 p-2">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setinput(e.target.value)}
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="add a task..."
-        />
-         <AddButton onAdd={addTodo} />
-      </div>
-      <ul>
-        {todos.map((todo) => (
-          <li
-            key={todo.id}
-            className="flex justify-between text-black items-center mb-2 p-2 bg-gray-100 rounded"
+    <div
+      className="min-h-screen flex flex-col items-center justify-center p-4 bg-[url('/bg-image.png')] bg-cover bg-center bg-no-repeat"
+      style={{ backgroundAttachment: 'fixed' }}
+    >
+      <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+          We invest in the world’s potential
+        </h1>
+        <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+          Here at Flowbite we focus on markets where technology, innovation, and
+          capital can unlock long-term value and drive economic growth.
+        </p>
+        <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+          <a
+            href="/todos"
+            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
           >
-            <span
-              className={todo.completed ? "line-through text-gray-500" : ""}
+            Get started
+            <svg
+              className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 10"
             >
-              {todo.title}
-            </span>
-            <div>
-              <button
-                onClick={() => toggleComplete(todo.id)}
-                className="text-green-500 hover:text-green-700 mr-2"
-              >
-                {todo.completed ? "undo" : "done"}
-              </button>
-              <button
-                onClick={() => deleteTodo(todo.id)}
-                className="text-red-500 hover:text-red-700"
-              >
-                delete
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default Home;
