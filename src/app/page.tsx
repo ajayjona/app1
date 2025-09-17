@@ -35,18 +35,18 @@ export default function Home() {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-4 bg-white shadow-md rounded-lg">
-      <h1 className="text-2xl font-bold mb-4">notebook</h1>
-      <div className="flex mb-4">
+      <h1 className="text-2xl  text-black  font-bold mb-4">Notes</h1>
+      <div className="flex mb-4 gap-2">
         <input
           type="text"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="flex-1 p-2 border border-gray-300 rounded-l"
+          onChange={(e) => setinput(e.target.value)}
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="add a task..."
         />
         <button
           onClick={addTodo}
-          className="p-2 bg-blue-500 text-white rounded-r hover:bg-blue-600"
+          className="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
         >
           add
         </button>
@@ -55,12 +55,12 @@ export default function Home() {
         {todos.map((todo) => (
           <li
             key={todo.id}
-            className="flex justify-between items-center mb-2 p-2 bg-gray-100 rounded"
+            className="flex justify-between text-black items-center mb-2 p-2 bg-gray-100 rounded"
           >
             <span
               className={todo.completed ? "line-through text-gray-500" : ""}
             >
-              {todo.text}
+              {todo.title}
             </span>
             <div>
               <button
