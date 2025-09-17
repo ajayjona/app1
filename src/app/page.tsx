@@ -7,6 +7,7 @@ interface Todo {
 
 import { useEffect, useState } from "react";
 import AddButton from "@/components/AddButton";
+import TopBar from "@/components/TopBar";
 
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -36,8 +37,9 @@ export default function Home() {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-4 bg-white shadow-md rounded-lg">
-      <h1 className="text-2xl  text-black  font-bold mb-4">Notes</h1>
-      <div className="flex mb-4 gap-2">
+<TopBar/>
+      
+      <div className="flex mb-4 gap-2 p-2">
         <input
           type="text"
           value={input}
