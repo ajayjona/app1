@@ -11,7 +11,7 @@ const Home: FC = () => {
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
           We invest in the world’s potential
         </h1>
-        <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+        <p className="mb-8 text-lg font-normal text-yellow-300 lg:text-xl sm:px-16 lg:px-48">
           Here at Flowbite we focus on markets where technology, innovation, and
           capital can unlock long-term value and drive economic growth.
         </p>
@@ -30,9 +30,9 @@ const Home: FC = () => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 5h12m0 0L9 1m4 4L9 9"
               />
             </svg>

@@ -8,6 +8,7 @@ interface Todo {
 import { useEffect, useState } from "react";
 import AddButton from "@/components/AddButton";
 import TopBar from "@/components/TopBar";
+import SidePanel from "@/components/sidebar";
 
 export default function Todo() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -37,6 +38,7 @@ export default function Todo() {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-4 bg-white shadow-md rounded-lg">
+      <SidePanel />
 <TopBar/>
       
       <div className="flex mb-4 gap-2 p-2">
